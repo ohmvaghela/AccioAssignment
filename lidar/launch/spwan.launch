@@ -1,0 +1,38 @@
+<launch>
+      <!-- world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find lidar)/world/lider_test.world" />
+  </include>
+
+      <!-- robot description -->
+  <arg name="model" />
+  <param
+    name="robot_description"
+    textfile="$(find lidar)/urdf/lidar.urdf" />
+  <!-- spawn robot -->
+  
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0.5"/>
+  <node
+    pkg="gazebo_ros"
+    type="spawn_model"
+    name="spawn_urdf"
+    args="-file $(find lidar)/urdf/lidar.urdf -urdf -model myLidar -x $(arg x) -y $(arg y) -z $(arg z)"
+    output="screen" />
+
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find lidar)/rviz.rviz" />
+
+</launch>
