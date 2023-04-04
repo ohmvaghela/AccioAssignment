@@ -1,17 +1,17 @@
 # AccioAssignment
 ## INFO
 - Lidar package contain the LIDIAR bot with scripts to get the distance
+- Here turtlebots were used as ROSbag was not provided 
+    - So to give dynamic behavior to obstacles turtlebot3 were used
 ## clone this in src folder of your workspace and build package
 
-## To lauch LIDAR and objects write this in command line
+## To launch LIDAR and dynamic obstacles
 ```
 roslaunch lidar spawn.launch
-roslaunch bots bots.launch
 ```
-
-## To get the distance and angle covered by dynamic objects run following
+## To view distace, start and end angle
 ```
-rosrun lidar depthScan
+rostopic echo /PublishObstaclesTopic 
 ```
 
 <img src="./img.png" width=800/>

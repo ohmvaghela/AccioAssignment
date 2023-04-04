@@ -34,5 +34,8 @@
     pkg="rviz"
     type="rviz"
     args="-d $(find lidar)/rviz.rviz" />
+    <include file="$(find bots)/launch/bots.launch"/>
+
+  <node name="LidarProcesser" pkg="lidar" type="depthScan"/>
 
 </launch>

@@ -23,3 +23,6 @@ foreach(dir launch urdf world)
 	install(DIRECTORY ${dir}/
 		DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
 endforeach(dir)
+
+add_executable(move_bots src/move_bots.cpp)
+target_link_libraries(move_bots ${catkin_LIBRARIES} )

@@ -6,20 +6,28 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   urdf
   xacro
-
+  message_generation
+  message_runtime
+)
+add_message_files(
+  FILES
+  Obstacles.msg
+)
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  lidar
 )
 
 catkin_package(
   CATKIN_DEPENDS urdf xacro
 )
 
-
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
-
-foreach(dir launch urdf world)
+foreach(dir msg launch urdf world)
 	install(DIRECTORY ${dir}/
 		DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
 endforeach(dir)
