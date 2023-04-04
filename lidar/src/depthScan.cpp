@@ -58,7 +58,7 @@ void updateMap()
             ++start_angle;
             --end_angle;
             // Add object to unordered map
-            ROS_INFO("%i: %i,%i",object_num,start_angle,end_angle);
+            ROS_INFO("bot %i: %i,%i",object_num,start_angle/2,end_angle/2);
             object_map[object_num] = std::make_pair(start_angle, end_angle);
         }
     }

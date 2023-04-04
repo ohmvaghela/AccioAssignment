@@ -13,3 +13,5 @@ roslaunch bots bots.launch
 ```
 rosrun lidar depthScan
 ```
+
+<img src="./img.png" width=800/>
